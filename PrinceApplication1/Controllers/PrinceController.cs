@@ -9,24 +9,29 @@ namespace PrinceApplication1.Controllers
     [Route("[controller]")]
     public class PrinceController : ControllerBase
     {
+        private const string ExampleHtml = "<html><head><style type='text/css'>body { font-family: 'Inter' }</style></head><body>Hello from Prince</body></html>";
         private readonly ILogger<PrinceController> _logger;
         private readonly IWebHostEnvironment _env;
+        private readonly string princePath;
+        private readonly PrinceLogger princeLogger;
+        private readonly string fontsCssPath;
 
         public PrinceController(ILogger<PrinceController> logger, IWebHostEnvironment env)
         {
             _logger = logger;
             _env = env;
+            princePath = Path.Combine(_env.ContentRootPath, @"prince\bin\prince.exe");
+            princeLogger = new PrinceLogger(_logger);
+            fontsCssPath = Path.Combine(_env.ContentRootPath, @"fonts\inter.css");
         }
 
         [HttpGet]
         public FileStreamResult Get()
         {
-            string path = Path.Combine(_env.ContentRootPath, @"prince\bin\prince.exe");
-            string fontsCssPath = Path.Combine(_env.ContentRootPath, @"fonts\inter.css");
-            Prince prn = new Prince(path);
+            Prince prn = new Prince(princePath, princeLogger);
             prn.AddStyleSheet(fontsCssPath);
             Stream pdfOutput = new MemoryStream(10000);
-            prn.ConvertString("<html><head><style type='text/css'>body { font-family: 'Inter' }</style></head><body>Hello from Prince</body></html>", pdfOutput);
+            prn.ConvertString(ExampleHtml, pdfOutput);
 
             pdfOutput.Flush();
             pdfOutput.Position = 0;

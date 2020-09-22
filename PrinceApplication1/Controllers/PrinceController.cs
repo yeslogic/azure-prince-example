@@ -21,7 +21,7 @@ namespace PrinceApplication1.Controllers
         [HttpGet]
         public FileStreamResult Get()
         {
-            string path = Path.Combine(_env.ContentRootPath, @"prince-20200812-win64\bin\prince.exe");
+            string path = Path.Combine(_env.ContentRootPath, @"prince\bin\prince.exe");
             string fontsCssPath = Path.Combine(_env.ContentRootPath, @"fonts\inter.css");
             Prince prn = new Prince(path);
             prn.AddStyleSheet(fontsCssPath);

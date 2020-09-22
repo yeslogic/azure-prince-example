@@ -1,8 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<UserSecretsId>e95fe00a-db5b-41db-82db-04534744bdd5</UserSecretsId>
+	</PropertyGroup>
 
+	<ItemGroup>
+		<DotNetPublishFiles Include="$(MSBuildProjectDirectory)\prince\**\*">
+			<DestinationRelativePath>prince\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+		</DotNetPublishFiles>
+		<DotNetPublishFiles Include="$(MSBuildProjectDirectory)\fonts\**\*">
+			<DestinationRelativePath>fonts\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+		</DotNetPublishFiles>
+	</ItemGroup>
 
 </Project>

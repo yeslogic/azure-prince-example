@@ -13,15 +13,15 @@ Follow these steps to deploy this project to Microsoft Azure:
 1. Clone the repository: `git clone https://github.com/yeslogic/azure-prince-example.git`
 2. Open the project in Visual Studio, selecting the `PrinceApplication1.sln` file.
 3. In the Solution Explorer, right-click on `PrinceApplication1` and choose "Publish...".<br>
-   ![Screenshot of menu shown when right-clicking on PrinceApplication1 in the Solytion Explorer](imgs/1-Publish....png)
-4. In the Publish window that appears, select, Azure as the Target and click, "Next".<br>
+   ![Screenshot of menu shown when right-clicking on PrinceApplication1 in the Solution Explorer](imgs/1-Publish....png)
+4. In the Publish window that appears, select Azure as the Target and click "Next".<br>
    ![Screenshot of the Publish window showing a list of possible targets](imgs/2-Publish.png)
-5. Choose, "Azure App Service (Windows)", as the Specific Target.
-6. Create or sign into your Azure account.
-   When signed in, click, "Create a new Azure App Service...".<br>
+5. Choose "Azure App Service (Windows)" as the Specific Target.
+6. Create or sign in to your Azure account.
+   When signed in, click "Create a new Azure App Service...".<br>
    ![Screeshot of App Service section of publishing workflow](imgs/4-Resource%20group.png)
 7. Pick a name, this will be used as the sub-domain when deployed.
-   E.g. a name of `PrinceApplication2` gets deployed to, https://princeapplication2.azurewebsites.net/
+   E.g. a name of `PrinceApplication2` gets deployed to https://princeapplication2.azurewebsites.net/.
    Choose a subscription, create or choose an existing resource group, and hosting plan.
    Click "Create", then click "Finish".<br>
    ![Screenshot of App Service configuration window](imgs/5-Create%20app%20service.png)

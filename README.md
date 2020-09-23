@@ -41,7 +41,7 @@ Follow these steps to deploy this project to Microsoft Azure:
 
 ## Debugging
 
-Two tools that are useful for debugging running Prince in Azure are the logs
+Two tools that are useful for debugging Prince in Azure are the logs
 and the console. This section shows how to use these.
 
 ### Sign In and Navigate to Your App Service
@@ -61,7 +61,7 @@ must be enabled first:
 1. [Sign in and navigate to your App Service](#sign-in-and-navigate-to-your-app-service).
 2. In the side bar click on "App Service Logs".
 3. Enable "Application Logging (Filesystem)".
-4. Set the Level to "Information", and click Save.<br>
+4. Set the Level to "Information", and click "Save".<br>
    <img src="imgs/portal-enable-app-service-logs.png" width="800" alt="Screenshot of the App Service log settings in the Azure portal">
 5. Wait for the notification that logging is enabled.
 

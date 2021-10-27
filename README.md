@@ -79,9 +79,9 @@ must be enabled first:
    deployed files.<br>
    <img src="imgs/portal-console.png" width="800" alt="Screenshot of the Console in the Azure portal">
 
-## Licence
+## License
 
-The source code in this repository is licensed under the [Apache 2.0 licence](LICENSE).
+The source code in this repository is licensed under the [Apache 2.0 license](LICENSE).
 
 The [Inter font family][Inter] contained in
 [PrinceApplication1/fonts](PrinceApplication1/fonts) is Copyright 2016-2020 The

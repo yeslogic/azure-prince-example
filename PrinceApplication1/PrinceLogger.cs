@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using PrinceXML.Wrapper.Events;
 
 namespace PrinceApplication1
 {
@@ -11,44 +12,44 @@ namespace PrinceApplication1
             _logger = logger;
         }
 
-        /**
-         * This method will be called when a warning or error message is received
-         * from Prince.
-         * @param msgType The type of the message ("inf", "wrn", or "err").
-         * @param msgLocation The name of the file that the message refers to.
-         * This may be empty if the message does not refer to any particular file.
-         * @param msgText The text of the message.
-         */
-        public void onMessage(string msgType, string msgLocation, string msgText)
+        public void OnMessage(MessageType msgType, string msgLocation, string msgText)
         {
             LogLevel logLevel;
             switch (msgType)
             {
-                case "dbg":
+                case MessageType.DBG:
                     logLevel = LogLevel.Debug;
                     break;
-                case "inf":
+                case MessageType.INF:
                     logLevel = LogLevel.Information;
                     break;
-                case "wrn":
+                case MessageType.WRN:
                     logLevel = LogLevel.Warning;
                     break;
-                case "err":
+                case MessageType.ERR:
                     logLevel = LogLevel.Error;
                     break;
-                default:
+                case MessageType.OUT:
                     logLevel = LogLevel.Trace;
+                    break;
+                default:
+                    logLevel = LogLevel.None;
                     break;
             }
 
             if (msgLocation == "")
             {
-                _logger.Log(logLevel, "{msgText}", msgText);
+                _logger.Log(logLevel, "[message] {msgText}", msgText);
             }
             else
             {
-                _logger.Log(logLevel, "{msgLocation}: {msgText}", msgLocation, msgText);
+                _logger.Log(logLevel, "[message] {msgLocation}: {msgText}", msgLocation, msgText);
             }
+        }
+
+        public void OnDataMessage(string name, string value)
+        {
+            _logger.Log(LogLevel.Information, "[data] {name}: {value}", name, value);
         }
     }
 }
